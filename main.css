@@ -68,8 +68,9 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .quote{
-    font-size: 52px;
+    font-size: 44px;
     font-weight: 300;
+    margin-left: 68px;
 }
 
 button{
@@ -107,7 +108,7 @@ button:hover .arrow{
 }
 
 .main-title{
-    font-size: 56px; 
+    font-size: 52px; 
 }
 
 .secondary-title{
@@ -128,13 +129,13 @@ button:hover .arrow{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 75px;
+    gap: 50px;
     margin-block: 200px;
-    cursor: pointer;
 }
 
 .promise h2{
     text-transform: none;
+    max-width: min(900px, 90%);
 }
 
 .promise-title{
@@ -146,15 +147,15 @@ button:hover .arrow{
 }
 
 .promise-img{
-    height: 250px;
-    aspect-ratio: 1.7;
+    height: 350px;
     object-fit: cover;
     border-radius: 24px;
-    transition: border-radius 100ms linear;
+    transition: border-radius 100ms linear, transform 100ms linear;
 }
 
 .promise:hover .promise-img{
     border-radius: 0;
+    transform: scale(1.05);
 }
 
 .arrow{
@@ -177,6 +178,7 @@ button:hover .arrow{
 .about-text{
     font-size: 28px;
     width: 50%;
+    overflow-wrap: anywhere;
 }
 
 .footer{
@@ -198,6 +200,84 @@ button:hover .arrow{
 .section-promise{
     font-size: 36px;
     width: 60%;
+}
+
+.commission{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+    margin-block: 64px;
+}
+
+.commission:nth-of-type(2n){
+    flex-direction: row-reverse;
+}
+
+.commission h2{
+    display: inline-block;
+    text-align: center;
+    color: #537074;
+}
+
+/* .commission h2 span:nth-of-type(1){
+    color: #537074;
+    font-size: 36px;
+}
+
+.commission h2 span:nth-of-type(2){
+    color: #535353;
+    font-size: 24px;
+} */
+
+
+.commission img{
+    height: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.commission .names{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.commission .name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.commission .name.chairman::after{
+    content: "Esimees";
+    font-weight: normal;
+    color: grey;
+}
+
+.commission .name:not(.chairman):not(.notitle)::after{
+    content: "Aseesimees";
+    font-weight: normal;
+    color: grey;
+}
+
+.name.chairman{
+    font-weight: bold;
+    transform: scale(1.1);
+}
+
+.names-campaign{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr; 
+    margin: auto;
+    gap: 0 16px;
+}
+
+.names-campaign .name:nth-child(odd):last-child{
+    grid-column: auto / span 2;
 }
 
 @media only screen and (max-width: 900px){
@@ -268,6 +348,7 @@ button:hover .arrow{
 
     .promise-img{
         width: calc(100vw - 32px);
+        height: auto;
     }
 
     .about-text{
@@ -290,5 +371,11 @@ button:hover .arrow{
 
     .promise .arrow{
         display: none;
+    }
+
+
+    .commission{
+        flex-direction: column !important;
+        gap: 16px;
     }
 }
